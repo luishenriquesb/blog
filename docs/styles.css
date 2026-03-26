@@ -174,7 +174,6 @@ nav .github svg {
 /* ── Footer ── */
 footer {
     border-top: 1px solid #e0e1dd;
-    margin-top: 5rem;
 }
 
 footer .container {
@@ -212,33 +211,43 @@ footer .container {
 }
 
 .prose h1 {
-    font-size: 2rem;
+    font-size: clamp(2rem, 4vw, 2.8rem);
     font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 0.75rem;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.9rem;
     color: #22223b;
 }
 
 .prose h3 {
     font-size: 1.15rem;
     font-weight: 600;
+    margin-top: 1.75rem;
     margin-bottom: 0.6rem;
     color: #22223b;
 }
 
 .prose p {
-    margin-bottom: 1rem;
-    line-height: 1.7;
+    margin-bottom: 1.15rem;
+    line-height: 1.85;
     color: #22223b;
+    font-size: 1.04rem;
 }
 
 .prose a {
     color: #4f5d75;
     text-decoration: underline;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.16em;
 }
 
 .prose a:hover {
     color: #22223b;
+}
+
+.prose strong {
+    font-weight: 700;
+    color: #1b1b34;
 }
 
 .prose code {
@@ -252,31 +261,36 @@ footer .container {
 .prose pre {
     background: #f8fafc;
     border: 1px solid #bfcde0;
-    padding: 1rem;
-    border-radius: 0.5rem;
+    padding: 1.1rem 1.2rem;
+    border-radius: 0.85rem;
     overflow-x: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    max-width: 100%;
+    box-shadow: 0 10px 30px rgba(191, 205, 224, 0.18);
 }
 
 .prose pre code {
     background: none;
     padding: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
 }
 
 .prose ul {
     list-style: disc;
     padding-left: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.15rem;
 }
 
 .prose ol {
     list-style: decimal;
     padding-left: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.15rem;
 }
 
 .prose li {
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.45rem;
+    line-height: 1.75;
 }
 
 .prose time {
@@ -284,6 +298,16 @@ footer .container {
     margin-bottom: 1.25rem;
     color: #9a8c98;
     font-size: 0.95rem;
+    letter-spacing: 0.01em;
+}
+
+.prose>article,
+.prose article {
+    max-width: 46rem;
+}
+
+.prose> :last-child {
+    margin-bottom: 0;
 }
 
 @media (max-width: 640px) {
@@ -293,5 +317,19 @@ footer .container {
 
     .post-title {
         font-size: 1.15rem;
+    }
+
+    .prose h1 {
+        font-size: 2rem;
+    }
+
+    .prose p,
+    .prose li {
+        font-size: 1rem;
+    }
+
+    .prose pre {
+        padding: 1rem;
+        border-radius: 0.7rem;
     }
 }

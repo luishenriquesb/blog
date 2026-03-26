@@ -40,27 +40,15 @@
         <h1>Bem-vindo ao meu blog!</h1>
         <time datetime="2026-03-18">2026-03-18</time>
         <div>
-          <h2>Olá, mundo! 👋</h2>
-          <p>Esse é o meu espaço pessoal na internet. Aqui vou compartilhar ideias, aprendizados e experiências sobre
-            desenvolvimento de software, tecnologia e tudo mais que me interessar.</p>
-          <p>A ideia é simples: escrever sobre o que aprendo, documentar projetos e trocar conhecimento com a
-            comunidade.
-          </p>
-          <h2>O que esperar?</h2>
-          <ul>
-            <li>Posts sobre desenvolvimento web e mobile</li>
-            <li>Tutoriais e dicas práticas</li>
-            <li>Reflexões sobre carreira em tech</li>
-            <li>Projetos pessoais e open source</li>
-          </ul>
-          <p>Fique à vontade para explorar e, se quiser trocar uma ideia, me encontra no GitHub!</p>
+          <!-- O conteúdo do post vai aqui. Pode ser texto, imagens, código, etc. Use a classe 
+          "prose" para estilizar o conteúdo de forma agradável. -->
         </div>
       </article>
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-800 mt-5">
+  <footer class="border-t border-slate-800 mt-20">
     <div class="max-w-4xl mx-auto px-4 py-8 text-center text-dark-muted text-sm">
       <p>&copy; <span id="year"></span> Rique Santos</p>
     </div>
