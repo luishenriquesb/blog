@@ -4,20 +4,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Listou Comprou | App de Lista de Compras Compartilhada</title>
+    <title>Listou Comprou | App de Lista de Compras Compartilhada com WhatsApp</title>
     <meta name="description"
-        content="Organize suas compras com listas compartilhadas, categorias automáticas, preços, quantidades e envio rápido pelo WhatsApp. Conheça o app Listou Comprou.">
+        content="Listou Comprou é o app de lista de compras compartilhada para casal e família, com categorias automáticas, preços, quantidades, duplicação de listas e envio rápido pelo WhatsApp.">
     <meta name="robots" content="index,follow">
-    <meta property="og:title" content="Listou Comprou | App de Lista de Compras Compartilhada">
+    <meta name="application-name" content="Listou Comprou">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Listou Comprou">
+    <meta property="og:title" content="Listou Comprou | App de Lista de Compras Compartilhada com WhatsApp">
     <meta property="og:description"
-        content="Crie listas, compartilhe com outros usuários, organize por categorias e envie para lojas pelo WhatsApp com mais praticidade no dia a dia.">
+        content="Crie listas, compartilhe com outros usuários, organize itens por categoria e envie compras para lojas pelo WhatsApp com mais praticidade no dia a dia.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://riquesantos.dev/listou-comprou-lista-compras.html">
     <meta property="og:image" content="https://riquesantos.dev/assets/banner-listou-comprou.png">
+    <meta property="og:image:alt" content="Banner do app Listou Comprou, aplicativo de lista de compras compartilhada">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Listou Comprou | App de Lista de Compras Compartilhada">
+    <meta name="twitter:title" content="Listou Comprou | App de Lista de Compras Compartilhada com WhatsApp">
     <meta name="twitter:description"
-        content="O app para criar, compartilhar e organizar listas de compras com mais agilidade, controle e praticidade.">
+        content="O app para criar, compartilhar e organizar listas de compras com categorias automáticas, colaboração e envio rápido pelo WhatsApp.">
     <meta name="twitter:image" content="https://riquesantos.dev/assets/banner-listou-comprou.png">
     <link rel="canonical" href="https://riquesantos.dev/listou-comprou-lista-compras.html">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -32,10 +36,25 @@
                 <img src="assets/logo.png" alt="Rique Santos" class="logo-img" />
                 <span class="logo-text">Rique Santos</span>
             </a>
-            <nav>
-                <a href="#funcionalidades">Funcionalidades</a>
-                <a href="#video-demo">Vídeo</a>
+            <nav class="menu">
+                <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-links">
+                    <span class="menu-icon">&#9776;</span>
+                </button>
+                <div class="menu-links" id="menu-links">
+                    <a href="#funcionalidades">Funcionalidades</a>
+                    <a href="#video-demo">Vídeo</a>
+                </div>
             </nav>
+            <script>
+                // Menu responsivo simples
+                const toggle = document.querySelector('.menu-toggle');
+                const links = document.querySelector('.menu-links');
+                toggle.addEventListener('click', () => {
+                    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+                    toggle.setAttribute('aria-expanded', !expanded);
+                    links.classList.toggle('open');
+                });
+            </script>
         </div>
     </header>
 
