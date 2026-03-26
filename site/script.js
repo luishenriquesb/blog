@@ -2,13 +2,13 @@
 // Blog Data (posts estáticos)
 // ============================
 const posts = [
-    {
-        id: 'bem-vindo-ao-blog',
-        title: 'Bem-vindo ao meu blog!',
-        date: '2026-03-18',
-        tags: ['pessoal', 'intro'],
-        summary: 'Primeiro post do blog — sobre o que esperar por aqui e por que resolvi criar esse espaço.',
-        content: `
+  {
+    id: 'bem-vindo-ao-blog',
+    title: 'Bem-vindo ao meu blog!',
+    date: '2026-03-18',
+    tags: ['pessoal', 'intro'],
+    summary: 'Primeiro post do blog — sobre o que esperar por aqui e por que resolvi criar esse espaço.',
+    content: `
           <h2>Olá, mundo! 👋</h2>
           <p>Esse é o meu espaço pessoal na internet. Aqui vou compartilhar ideias, aprendizados e experiências sobre desenvolvimento de software, tecnologia e tudo mais que me interessar.</p>
           <p>A ideia é simples: escrever sobre o que aprendo, documentar projetos e trocar conhecimento com a comunidade.</p>
@@ -21,14 +21,14 @@ const posts = [
           </ul>
           <p>Fique à vontade para explorar e, se quiser trocar uma ideia, me encontra no GitHub!</p>
         `
-    },
-    {
-        id: 'por-que-blog-estatico',
-        title: 'Por que escolhi um blog estático?',
-        date: '2026-03-18',
-        tags: ['tech', 'web'],
-        summary: 'Entenda por que optei por HTML puro, JavaScript e Tailwind CSS ao invés de frameworks pesados.',
-        content: `
+  },
+  {
+    id: 'por-que-blog-estatico',
+    title: 'Por que escolhi um blog estático?',
+    date: '2026-03-18',
+    tags: ['tech', 'web'],
+    summary: 'Entenda por que optei por HTML puro, JavaScript e Tailwind CSS ao invés de frameworks pesados.',
+    content: `
           <h2>Simplicidade acima de tudo</h2>
           <p>Existem dezenas de opções para criar blogs: WordPress, Next.js, Gatsby, Hugo… Mas eu queria algo <strong>simples, rápido e sem dependências</strong>.</p>
           <p>Com HTML, JavaScript vanilla e Tailwind CSS via CDN, consigo ter um blog funcional hospedado gratuitamente no GitHub Pages, sem build steps, sem servidor, sem banco de dados.</p>
@@ -52,21 +52,21 @@ const posts = [
 ];</code></pre>
           <p>Simples assim! 🚀</p>
         `
-    }
+  }
 ];
 
 // ============================
 // Solutions Data (soluções desenvolvidas)
 // ============================
 const solutions = [
-    {
-        id: 'listou-comprou',
-        name: 'Listou Comprou',
-        tagline: 'Lista de compras inteligente e simples.',
-        icon: '🛒',
-        tags: ['app', 'produtividade', 'mobile'],
-        summary: 'App de lista de compras prático e intuitivo para organizar suas compras do dia a dia.',
-        content: `
+  {
+    id: 'listou-comprou',
+    name: 'Listou Comprou',
+    tagline: 'Lista de compras inteligente e simples.',
+    icon: '🛒',
+    tags: ['app', 'produtividade', 'mobile'],
+    summary: 'App de lista de compras prático e intuitivo para organizar suas compras do dia a dia.',
+    content: `
           <h2>O que é o Listou Comprou?</h2>
           <p>O <strong>Listou Comprou</strong> é um app de lista de compras pensado para ser simples e eficiente. A ideia surgiu da frustração com apps de lista que são complicados demais para algo que deveria ser rápido: anotar o que precisa comprar e riscar quando comprou.</p>
 
@@ -88,7 +88,7 @@ const solutions = [
           <h2>Status</h2>
           <p>Em desenvolvimento ativo. Fique ligado para novidades!</p>
         `
-    }
+  }
 ];
 
 // ============================
@@ -116,67 +116,75 @@ const aboutPage = `
 const app = document.getElementById('app');
 
 function formatDate(dateStr) {
-    const d = new Date(dateStr + 'T00:00:00');
-    return d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
+  const d = new Date(dateStr + 'T00:00:00');
+  return d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
 }
 
 function showHome() {
-    window.location.hash = '';
-    renderHome();
+  window.location.hash = '';
+  renderHome();
 }
 
 function showPage(page) {
-    window.location.hash = page;
-    if (page === 'about') {
-        app.innerHTML = aboutPage;
-    } else if (page === 'solutions') {
-        renderSolutions();
-    }
+  window.location.hash = page;
+  if (page === 'about') {
+    app.innerHTML = aboutPage;
+  } else if (page.startsWith('solution/')) {
+    const id = page.replace('solution/', '');
+    renderSolution(id);
+  }
 }
 
 function showPost(id) {
-    window.location.hash = 'post/' + id;
-    renderPost(id);
+  window.location.hash = 'post/' + id;
+  renderPost(id);
 }
 
 function showSolution(id) {
-    window.location.hash = 'solution/' + id;
-    renderSolution(id);
+  window.location.hash = 'solution/' + id;
+  renderSolution(id);
 }
 
 function renderHome() {
-    const sorted = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
-    app.innerHTML = `
-        <div class="fade-in">
-          <div class="mb-10">
-            <h1 class="text-4xl font-bold mb-3">Blog do Rique Santos</h1>
-            <p class="text-dark-muted text-lg">Desenvolvimento, tecnologia e experiências.</p>
-          </div>
-          <div class="space-y-6">
-            ${sorted.map(post => `
-              <article class="bg-dark-card rounded-xl p-6 hover:ring-1 hover:ring-primary/50 transition-all cursor-pointer" onclick="showPost('${post.id}')">
-                <div class="flex items-center gap-3 mb-3">
-                  <time class="text-dark-muted text-sm">${formatDate(post.date)}</time>
-                  <div class="flex gap-2">
-                    ${post.tags.map(t => `<span class="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded-full">${t}</span>`).join('')}
+  const sorted = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
+  app.innerHTML = `
+      <div class="fade-in">
+        <div class="mb-10">
+          <h1 class="text-3xl font-bold mb-2" style="color:#22223b;">Desenvolvimento de Apps, tecnologia e experiências</h1>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 2.5rem;">
+          ${sorted.map(post => {
+    // Pega um trecho do conteúdo (primeiro parágrafo)
+    const temp = document.createElement('div');
+    temp.innerHTML = post.content;
+    const firstP = temp.querySelector('p') ? temp.querySelector('p').outerHTML : '';
+    return `
+              <article class="post-card" style="background: #fff; border: 1px solid #e0e1dd; border-radius: 1.1rem; padding: 2rem 1.5rem; box-shadow: 0 2px 8px 0 #e0e1dd22;">
+                <div style="display:flex; align-items:center; gap:1rem; margin-bottom:0.5rem;">
+                  <time style="color:#9a8c98; font-size:0.95rem;">${formatDate(post.date)}</time>
+                  <div style="display:flex; gap:0.5rem;">
+                    ${post.tags.map(t => `<span style="background:#bfcde0; color:#4f5d75; font-size:0.8rem; padding:0.2rem 0.7rem; border-radius:0.7rem;">${t}</span>`).join('')}
                   </div>
                 </div>
-                <h2 class="text-xl font-semibold text-white mb-2">${post.title}</h2>
-                <p class="text-dark-muted">${post.summary}</p>
+                <h2 style="font-size:1.3rem; font-weight:600; color:#22223b; margin-bottom:0.5rem;">${post.title}</h2>
+                <p style="color:#4f5d75; margin-bottom:0.7rem;">${post.summary}</p>
+                <div class="prose" style="margin-bottom:0.7rem;">${firstP}</div>
+                <a href="#post/${post.id}" onclick="showPost('${post.id}');return false;" style="color:#4f5d75; text-decoration:underline; font-size:0.97rem;">Ler post completo</a>
               </article>
-            `).join('')}
-          </div>
+            `;
+  }).join('')}
         </div>
-      `;
+      </div>
+    `;
 }
 
 function renderPost(id) {
-    const post = posts.find(p => p.id === id);
-    if (!post) {
-        app.innerHTML = `<div class="fade-in text-center py-20"><h1 class="text-2xl font-bold mb-4">Post não encontrado</h1><a href="#" onclick="showHome()" class="text-primary hover:underline">Voltar ao início</a></div>`;
-        return;
-    }
-    app.innerHTML = `
+  const post = posts.find(p => p.id === id);
+  if (!post) {
+    app.innerHTML = `<div class="fade-in text-center py-20"><h1 class="text-2xl font-bold mb-4">Post não encontrado</h1><a href="#" onclick="showHome()" class="text-primary hover:underline">Voltar ao início</a></div>`;
+    return;
+  }
+  app.innerHTML = `
         <article class="fade-in">
           <a href="#" onclick="showHome()" class="text-dark-muted hover:text-primary text-sm mb-6 inline-flex items-center gap-1 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
@@ -202,7 +210,7 @@ function renderPost(id) {
 // Solutions rendering
 // ============================
 function renderSolutions() {
-    app.innerHTML = `
+  app.innerHTML = `
         <div class="fade-in">
           <div class="mb-10">
             <h1 class="text-4xl font-bold mb-3">Soluções</h1>
@@ -226,12 +234,12 @@ function renderSolutions() {
 }
 
 function renderSolution(id) {
-    const solution = solutions.find(s => s.id === id);
-    if (!solution) {
-        app.innerHTML = `<div class="fade-in text-center py-20"><h1 class="text-2xl font-bold mb-4">Solução não encontrada</h1><a href="#" onclick="showPage('solutions')" class="text-primary hover:underline">Ver todas as soluções</a></div>`;
-        return;
-    }
-    app.innerHTML = `
+  const solution = solutions.find(s => s.id === id);
+  if (!solution) {
+    app.innerHTML = `<div class="fade-in text-center py-20"><h1 class="text-2xl font-bold mb-4">Solução não encontrada</h1><a href="#" onclick="showPage('solutions')" class="text-primary hover:underline">Ver todas as soluções</a></div>`;
+    return;
+  }
+  app.innerHTML = `
         <article class="fade-in">
           <a href="#" onclick="showPage('solutions')" class="text-dark-muted hover:text-primary text-sm mb-6 inline-flex items-center gap-1 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
@@ -260,18 +268,18 @@ function renderSolution(id) {
 // Router (hash-based)
 // ============================
 function route() {
-    const hash = window.location.hash.slice(1);
-    if (hash === 'about') {
-        app.innerHTML = aboutPage;
-    } else if (hash === 'solutions') {
-        renderSolutions();
-    } else if (hash.startsWith('solution/')) {
-        renderSolution(hash.replace('solution/', ''));
-    } else if (hash.startsWith('post/')) {
-        renderPost(hash.replace('post/', ''));
-    } else {
-        renderHome();
-    }
+  const hash = window.location.hash.slice(1);
+  if (hash === 'about') {
+    app.innerHTML = aboutPage;
+  } else if (hash === 'solutions') {
+    renderSolutions();
+  } else if (hash.startsWith('solution/')) {
+    renderSolution(hash.replace('solution/', ''));
+  } else if (hash.startsWith('post/')) {
+    renderPost(hash.replace('post/', ''));
+  } else {
+    renderHome();
+  }
 }
 
 window.addEventListener('hashchange', route);

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rique Santos - Blog Pessoal</title>
+    <meta name="description"
+        content="Blog pessoal de Rique Santos - Desenvolvimento de Apps, tecnologia e experiências." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        dark: {
+                            bg: '#0f172a',
+                            card: '#1e293b',
+                            text: '#e2e8f0',
+                            muted: '#94a3b8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="#" onclick="showHome()" class="logo">
+                <img src="assets/logo.png" alt="Rique Santos" class="logo-img" />
+                <span class="logo-text">Rique Santos</span>
+            </a>
+            <nav>
+                <a href="#" onclick="showPage('solution/listou-comprou')">Listou Comprou - App</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="app" class="max-w-6xl mx-auto px-4 py-10">
+        <!-- Content is rendered by JavaScript -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 mt-20">
+        <div class="max-w-4xl mx-auto px-4 py-8 text-center text-dark-muted text-sm">
+            <p>&copy; <span id="year"></span> Rique Santos. Feito com ❤️ e código.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
