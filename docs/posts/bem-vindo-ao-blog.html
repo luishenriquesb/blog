@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Bem-vindo ao meu blog! - Rique Santos</title>
+  <meta name="description"
+    content="Primeiro post do blog — sobre o que esperar por aqui e por que resolvi criar esse espaço.">
+  <meta property="og:title" content="Bem-vindo ao meu blog!">
+  <meta property="og:description"
+    content="Primeiro post do blog — sobre o que esperar por aqui e por que resolvi criar esse espaço.">
+  <link rel="canonical" href="https://riquesantos.dev/posts/bem-vindo-ao-blog.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <a href="index.html" onclick="showHome(); return false;" class="logo">
+        <img src="../assets/logo.png" alt="Rique Santos" class="logo-img" />
+        <span class="logo-text">Rique Santos</span>
+      </a>
+      <nav>
+        <a href="#solution/listou-comprou" onclick="showPage('solution/listou-comprou'); return false;">Listou Comprou -
+          App</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <main id="app" class="max-w-6xl mx-auto px-4 py-10">
+    <div class="fade-in">
+    <article class="prose">
+        <p><a href="../index.html">Voltar para a home</a></p>
+        <h1>Bem-vindo ao meu blog!</h1>
+        <time datetime="2026-03-18">2026-03-18</time>
+        <div>
+          <h2>Olá, mundo! 👋</h2>
+          <p>Esse é o meu espaço pessoal na internet. Aqui vou compartilhar ideias, aprendizados e experiências sobre
+            desenvolvimento de software, tecnologia e tudo mais que me interessar.</p>
+          <p>A ideia é simples: escrever sobre o que aprendo, documentar projetos e trocar conhecimento com a
+            comunidade.
+          </p>
+          <h2>O que esperar?</h2>
+          <ul>
+            <li>Posts sobre desenvolvimento web e mobile</li>
+            <li>Tutoriais e dicas práticas</li>
+            <li>Reflexões sobre carreira em tech</li>
+            <li>Projetos pessoais e open source</li>
+          </ul>
+          <p>Fique à vontade para explorar e, se quiser trocar uma ideia, me encontra no GitHub!</p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 mt-20">
+    <div class="max-w-4xl mx-auto px-4 py-8 text-center text-dark-muted text-sm">
+      <p>&copy; <span id="year"></span> Rique Santos. Feito com ❤️ e código.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+
+</html>
