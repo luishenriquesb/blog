@@ -95,6 +95,25 @@ nav .github svg {
     padding: 2.5rem 1rem 3rem 1rem;
 }
 
+.landing-hero-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.landing-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.landing-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
 .home-post-list {
     display: flex;
     flex-direction: column;
@@ -311,6 +330,12 @@ footer .container {
 }
 
 @media (max-width: 640px) {
+    .landing-hero-grid,
+    .landing-card-grid,
+    .landing-feature-grid {
+        grid-template-columns: 1fr;
+    }
+
     .post-card {
         padding: 1.5rem 1.1rem;
     }
