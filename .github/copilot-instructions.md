@@ -11,8 +11,8 @@ Stack: HTML, JavaScript vanilla e Tailwind CSS (CDN).
 
 ## Estrutura
 
-- `site/index.html` — Estrutura HTML do blog (somente markup semântico, sem classes utilitárias)
-- `site/styles.css` — Toda a estilização do blog (layout, cores, tipografia, animações, prose)
+- `docs/index.html` — Estrutura HTML do blog (somente markup semântico, sem classes utilitárias)
+- `docs/styles.css` — Toda a estilização do blog (layout, cores, tipografia, animações, prose)
 - `script.js` — Lógica do blog (posts, roteamento, renderização)
 - `CNAME` — Configuração de domínio customizado para GitHub Pages
 - Usa roteamento baseado em hash (`#post/id`, `#solution/id`, `#solutions`, `#about`)
